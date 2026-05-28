@@ -466,3 +466,260 @@ button:hover {
 .painel-topo h2 {
     color: #4F46E5;
 }
+
+/* RELATÓRIOS */
+
+.relatorio-acoes {
+    margin-top: 30px;
+}
+
+/* HOVER PREMIUM */
+
+.card:hover {
+    transform: translateY(-5px) scale(1.01);
+}
+
+/* GLASS EFFECT */
+
+.card,
+.formulario,
+.grafico-box,
+.painel-lista {
+    backdrop-filter: blur(10px);
+}
+
+/* CONFIGURAÇÕES */
+
+#configuracoes .lista {
+    max-width: 850px;
+}
+
+/* CARDÁPIO */
+
+#cardapio .card {
+    border-left: 8px solid #10B981;
+}
+
+/* DASHBOARD */
+
+#dashboard .grafico-box {
+    margin-top: 45px;
+}
+
+/* SCROLL BONITO */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7c3aed;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background: #eef2ff;
+}
+/* MENU ATIVO */
+
+.sidebar li.ativo {
+
+    background: rgba(255,255,255,0.22);
+
+    transform: translateX(6px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.filtros {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+select {
+
+    padding: 16px;
+
+    border-radius: 16px;
+
+    border: 1px solid #d1d5db;
+
+    width: 220px;
+
+    font-size: 16px;
+
+    background: white;
+
+    box-shadow: 0px 4px 12px rgba(79,70,229,0.08);
+}
+
+select:focus {
+
+    outline: none;
+
+    border: 2px solid #4F46E5;
+}
+/* NOTIFICAÇÕES */
+
+#notificacao {
+
+    position: fixed;
+
+    top: 25px;
+
+    right: 25px;
+
+    background: #4F46E5;
+
+    color: white;
+
+    padding: 18px 25px;
+
+    border-radius: 18px;
+
+    font-weight: bold;
+
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+
+    opacity: 0;
+
+    transform: translateX(120px);
+
+    transition: 0.4s;
+
+    z-index: 9999;
+}
+
+#notificacao.mostrar {
+
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+.notificacao-sucesso {
+
+    background: linear-gradient(135deg, #10B981, #059669);
+}
+
+.notificacao-erro {
+
+    background: linear-gradient(135deg, #EF4444, #DC2626);
+}
+
+.notificacao-aviso {
+
+    background: linear-gradient(135deg, #F59E0B, #D97706);
+}
+.cardapio-completo {
+    margin-top: 20px;
+}
+
+.cardapio-completo h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #4F46E5;
+}
+
+.objetivo-cardapio {
+    background: #eef2ff;
+    padding: 18px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    color: #374151;
+}
+
+.refeicao {
+    background: #f8fafc;
+    padding: 18px;
+    border-radius: 18px;
+    margin-bottom: 15px;
+}
+
+.refeicao h4 {
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.refeicao ul {
+    padding-left: 20px;
+}
+
+.refeicao li {
+    margin-bottom: 7px;
+    color: #374151;
+}
+
+.evitAR,
+.evitar {
+    background: #fff7ed;
+}
+
+.observacao {
+    background: #ecfdf5;
+}
+/* EXERCÍCIOS */
+
+.atividade-box {
+
+    margin-top: 20px;
+
+    background: #f8fafc;
+
+    padding: 22px;
+
+    border-radius: 22px;
+}
+
+.atividade-box h3 {
+
+    color: #4F46E5;
+
+    margin-bottom: 15px;
+}
+
+.atividade-texto {
+
+    color: #6b7280;
+
+    margin-bottom: 20px;
+}
+
+.atividade-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 15px;
+}
+
+.atividade-item {
+
+    background: white;
+
+    padding: 15px;
+
+    border-radius: 16px;
+
+    box-shadow: 0px 4px 12px rgba(79,70,229,0.08);
+
+    font-weight: bold;
+
+    color: #374151;
+}
+
+.tempo-atividade {
+
+    margin-top: 20px;
+
+    background: #eef2ff;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    color: #4F46E5;
+
+    font-weight: bold;
+}
