@@ -45,3 +45,108 @@
             </ul>
         </aside>
 
+
+        <!-- CONTEÚDO -->
+        <main class="main">
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="tela">
+                <h1>Dashboard Nutricional</h1>
+                <p class="subtitulo">Resumo geral do acompanhamento infantil.</p>
+
+                <div class="cards dashboard-cards">
+                    <div class="card card-resumo">
+                        <div class="card-icon">👶</div>
+                        <div>
+                            <h3>Total Crianças</h3>
+                            <p id="totalCriancas">0</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-resumo">
+                        <div class="card-icon">📊</div>
+                        <div>
+                            <h3>Média IMC</h3>
+                            <p id="mediaImc">0</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-resumo">
+                        <div class="card-icon">🏃</div>
+                        <div>
+                            <h3>Atividades</h3>
+                            <p>15</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CRIANÇAS -->
+            <section id="cadastro" class="tela" style="display: none;">
+                <h1>Cadastro de Crianças</h1>
+                <p class="subtitulo">Cadastre, edite, pesquise e acompanhe cada criança.</p>
+
+                <div class="formulario">
+                    <input type="text" id="nome" placeholder="Nome da criança">
+                    <input type="text" id="responsavel" placeholder="Nome do responsável">
+                    <input type="number" id="idade" placeholder="Idade">
+                    <input type="number" id="altura" placeholder="Altura (1.30)">
+                    <input type="number" id="peso" placeholder="Peso">
+                    <select id="classe">
+                        <option value="">Selecione a Classe</option>
+                        <option value="1º A">1º A</option>
+                        <option value="1º B">1º B</option>
+                        <option value="1º C">1º C</option>
+
+                        <option value="2º A">2º A</option>
+                        <option value="2º B">2º B</option>
+                        <option value="2º C">2º C</option>
+
+                        <option value="3º A">3º A</option>
+                        <option value="3º B">3º B</option>
+                        <option value="3º C">3º C</option>
+
+                        <option value="4º A">4º A</option>
+                        <option value="4º B">4º B</option>
+                        <option value="4º C">4º C</option>
+
+                        <option value="5º A">5º A</option>
+                        <option value="5º B">5º B</option>
+                        <option value="5º C">5º C</option>
+
+
+
+                    </select>
+
+                    <button onclick="cadastrarCrianca()">Cadastrar Criança</button>
+                </div>
+
+                <div class="painel-lista">
+                    <div class="painel-topo">
+                        <div class="filtros">
+                            <button onclick="ordenarPorNome()">🔤 Ordem Alfabética</button>
+                            <select onchange="filtrarClasse(this.value)">
+
+                            <option value="">🏫 Todas as Classes</option>
+
+                            <option value="1º A">1º A</option>
+                            <option value="1º B">1º B</option>
+                            <option value="1º C">1º C</option>
+
+                            <option value="2º A">2º A</option>
+                            <option value="2º B">2º B</option>
+                            <option value="2º C">2º C</option>
+
+                            <option value="3º A">3º A</option>
+                            <option value="3º B">3º B</option>
+                            <option value="3º C">3º C</option>
+
+                            <option value="4º A">4º A</option>
+                            <option value="4º B">4º B</option>
+                            <option value="4º C">4º C</option>
+
+                            <option value="5º A">5º A</option>
+                            <option value="5º B">5º B</option>
+                            <option value="5º C">5º C</option>
+
+</select>
