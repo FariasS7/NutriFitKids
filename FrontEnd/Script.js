@@ -340,3 +340,207 @@ function atualizarGrafico() {
                 barThickness: 32
             }]
         },
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            animation: {
+                duration: 1400
+            },
+
+            plugins: {
+
+                legend: {
+                    display: false
+                },
+
+                tooltip: {
+
+                    backgroundColor: "#111827",
+
+                    padding: 14,
+
+                    titleFont: {
+                        size: 16
+                    },
+
+                    bodyFont: {
+                        size: 14
+                    }
+                }
+            },
+
+            scales: {
+
+                x: {
+
+                    grid: {
+                        display: false
+                    },
+
+                    ticks: {
+                        color: "#6B7280",
+                        font: {
+                            size: 14
+                        }
+                    }
+                },
+
+                y: {
+
+                    beginAtZero: true,
+
+                    grid: {
+                        color: "rgba(0,0,0,0.05)"
+                    },
+
+                    ticks: {
+                        color: "#6B7280",
+                        font: {
+                            size: 13
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+function limparCampos() {
+    document.getElementById("nome").value = "";
+    document.getElementById("responsavel").value = "";
+    document.getElementById("classe").value = "";
+    document.getElementById("idade").value = "";
+    document.getElementById("altura").value = "";
+    document.getElementById("peso").value = "";
+}
+
+
+
+function atualizarCardapio() {
+    let area = document.getElementById("cardapioConteudo");
+
+    if (!area) return;
+
+    area.innerHTML = "";
+
+    if (criancas.length === 0) {
+        area.innerHTML = "<p>Nenhuma criança cadastrada ainda.</p>";
+        return;
+    }
+
+    criancas.forEach(crianca => {
+        area.innerHTML += `
+            <div class="card card-grande">
+                <h2>${crianca.nome}</h2>
+                <p><strong>Idade:</strong> ${crianca.idade} anos</p>
+                <p><strong>IMC:</strong> ${crianca.imc}</p>
+                <p><strong>Situação:</strong> ${crianca.situacao}</p>
+                ${gerarCardapio(crianca)}
+            </div>
+        `;
+    });
+}
+
+function atualizarRelatorios() {
+    let abaixo = 0;
+    let normal = 0;
+    let acima = 0;
+
+    criancas.forEach(crianca => {
+        if (crianca.situacao === "Abaixo do peso") {
+            abaixo++;
+        } else if (crianca.situacao === "Peso normal") {
+            normal++;
+        } else {
+            acima++;
+        }
+    });
+
+    document.getElementById("relatorioTotal").innerText = criancas.length;
+    document.getElementById("relatorioAbaixo").innerText = abaixo;
+    document.getElementById("relatorioNormal").innerText = normal;
+    document.getElementById("relatorioAcima").innerText = acima;
+}
+function mostrarConfiguracoes() {
+
+    esconderTelas();
+
+    document.getElementById("configuracoes").style.display = "block";
+}
+
+
+// DARK MODE
+
+function ativarDarkMode() {
+
+    document.body.classList.toggle("dark");
+}
+
+
+// RESETAR SISTEMA
+
+function resetarSistema() {
+
+    let confirmar = confirm("Deseja apagar todos os dados?");
+
+    if (confirmar) {
+
+        criancas = [];
+
+        atualizarTela();
+
+        atualizarCardapio();
+
+        atualizarRelatorios();
+
+        mostrarNotificacao("Sistema resetado!", "aviso");
+    }
+}
+function editarCrianca(indice) {
+
+    let crianca = criancas[indice];
+
+    document.getElementById("nome").value = crianca.nome;
+
+    document.getElementById("idade").value = crianca.idade;
+
+    document.getElementById("classe").value = crianca.classe;
+
+    document.getElementById("altura").value = crianca.altura;
+
+    document.getElementById("peso").value = crianca.peso;
+
+    editando = indice;
+
+    mostrarCadastro();
+}
+function gerarCardapio(crianca) {
+    let idade = crianca.idade;
+    let situacao = crianca.situacao;
+
+    let titulo = "";
+    let objetivo = "";
+    let cafe = "";
+    let lancheManha = "";
+    let almoco = "";
+    let lancheTarde = "";
+    let jantar = "";
+    let ceia = "";
+    let evitar = "";
+    let hidratacao = "";
+    let observacao = "";
+
+    if (situacao === "Abaixo do peso" && idade <= 10) {
+        titulo = "Cardápio infantil para ganho saudável de peso";
+        objetivo = "Aumentar energia e nutrientes sem usar alimentos ultraprocessados.";
+
+        cafe = `
+            <li>Leite integral ou iogurte natural</li>
+            <li>Pão com queijo branco ou ovo mexido</li>
+            <li>Banana com aveia ou mamão</li>
+            <li>Vitamina de fruta com leite</li>
+        `;
