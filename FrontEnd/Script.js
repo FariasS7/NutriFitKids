@@ -1122,4 +1122,148 @@ menus.forEach(menu => {
         menu.classList.add("ativo");
     });
 });
+function ordenarPorNome() {
+    criancas.sort((a, b) => a.nome.localeCompare(b.nome));
+    atualizarTela();
+    salvarDados();
+}
+
+function ordenarPorClasse() {
+    criancas.sort((a, b) => a.classe.localeCompare(b.classe));
+    atualizarTela();
+    salvarDados();
+}
+function filtrarClasse(classeSelecionada) {
+
+    let cards = document.querySelectorAll("#listaCriancas .card");
+
+    cards.forEach(card => {
+
+        let textoClasse = card.innerText;
+
+        if (
+            classeSelecionada === "" ||
+            textoClasse.includes(classeSelecionada)
+        ) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+        }
+    });
+}
+function mostrarNotificacao(mensagem, tipo = "sucesso") {
+
+    let notificacao = document.getElementById("notificacao");
+
+    notificacao.innerText = mensagem;
+
+    notificacao.className = "";
+
+    notificacao.classList.add("mostrar");
+
+    if (tipo === "sucesso") {
+        notificacao.classList.add("notificacao-sucesso");
+    }
+
+    if (tipo === "erro") {
+        notificacao.classList.add("notificacao-erro");
+    }
+
+    if (tipo === "aviso") {
+        notificacao.classList.add("notificacao-aviso");
+    }
+
+    setTimeout(() => {
+
+        notificacao.classList.remove("mostrar");
+
+    }, 3000);
+}
+function imprimirCrianca(indice) {
+    let crianca = criancas[indice];
+
+    let conteudo = `
+        <div class="card">
+            <h2>${crianca.nome}</h2>
+
+            <p><strong>Responsável:</strong> ${crianca.responsavel}</p>
+            <p><strong>Classe:</strong> ${crianca.classe}</p>
+            <p><strong>Idade:</strong> ${crianca.idade}</p>
+            <p><strong>Altura:</strong> ${crianca.altura}m</p>
+            <p><strong>Peso:</strong> ${crianca.peso}kg</p>
+            <p><strong>IMC:</strong> ${crianca.imc}</p>
+            <p><strong>Situação:</strong> ${crianca.situacao}</p>
+            <p><strong>Alimentação:</strong> ${crianca.alimentacao}</p>
+
+            ${crianca.atividades}
+
+            <hr>
+
+            ${gerarCardapio(crianca)}
+        </div>
+    `;
+
+    let janela = window.open("", "", "width=1000,height=800");
+
+    janela.document.write(`
+        <html>
+        <head>
+            <title>Relatório - ${crianca.nome}</title>
+
+            <style>
+                body {
+                    font-family: Arial;
+                    padding: 30px;
+                    background: #f4f7fb;
+                }
+
+                h1, h2, h3 {
+                    color: #4F46E5;
+                }
+
+                .card {
+                    background: white;
+                    padding: 25px;
+                    border-radius: 15px;
+                    border-left: 8px solid #4F46E5;
+                }
+
+                p {
+                    line-height: 1.8;
+                }
+
+                li {
+                    margin-bottom: 8px;
+                }
+
+                hr {
+                    margin: 20px 0;
+                }
+            </style>
+        </head>
+
+        <body>
+            <h1>Relatório Nutricional Infantil</h1>
+            ${conteudo}
+        </body>
+        </html>
+    `);
+
+    janela.document.close();
+    janela.print();
+}
+
+// TESTE API JAVA
+
+fetch("http://localhost:8080/teste")
+    .then(res => res.text())
+    .then(data => {
+
+        console.log(data);
+
+    });
+
 
