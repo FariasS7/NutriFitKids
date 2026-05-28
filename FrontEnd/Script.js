@@ -679,4 +679,220 @@ function gerarCardapio(crianca) {
             <li>Excesso de biscoito recheado</li>
             <li>Frituras frequentes</li>
         `;
+        } else if (situacao === "Peso normal" && idade > 10) {
+        titulo = "Cardápio equilibrado para pré-adolescente";
+        objetivo = "Manter energia, concentração e alimentação equilibrada.";
+
+        cafe = `
+            <li>Leite, iogurte ou vitamina</li>
+            <li>Pão integral com queijo ou ovo</li>
+            <li>Fruta</li>
+            <li>Aveia ou granola sem excesso de açúcar</li>
+        `;
+
+        lancheManha = `
+            <li>Fruta</li>
+            <li>Iogurte</li>
+            <li>Castanhas em pequena porção</li>
+        `;
+
+        almoco = `
+            <li>Arroz, feijão ou lentilha</li>
+            <li>Proteína: frango, peixe, ovo ou carne magra</li>
+            <li>Legumes e verduras</li>
+            <li>Salada colorida</li>
+        `;
+
+        lancheTarde = `
+            <li>Sanduíche natural</li>
+            <li>Vitamina</li>
+            <li>Tapioca simples</li>
+        `;
+
+        jantar = `
+            <li>Prato leve com proteína e legumes</li>
+            <li>Sopa nutritiva</li>
+            <li>Omelete com salada</li>
+        `;
+
+        ceia = `
+            <li>Leite</li>
+            <li>Chá</li>
+            <li>Fruta</li>
+        `;
+
+        evitar = `
+            <li>Fast food frequente</li>
+            <li>Energéticos</li>
+            <li>Doces em excesso</li>
+        `;
+
+    } else if (situacao === "Acima do peso" && idade <= 10) {
+        titulo = "Cardápio infantil para controle de peso";
+        objetivo = "Melhorar hábitos sem dieta radical, com foco em saúde e rotina.";
+
+        cafe = `
+            <li>Iogurte natural com fruta</li>
+            <li>Aveia ou granola sem açúcar</li>
+            <li>Pão integral com queijo branco</li>
+            <li>Ovo mexido</li>
+        `;
+
+        lancheManha = `
+            <li>Fruta</li>
+            <li>Água ou suco natural sem açúcar</li>
+            <li>Iogurte natural</li>
+        `;
+
+        almoco = `
+            <li>Arroz em pequena porção</li>
+            <li>Feijão</li>
+            <li>Frango grelhado, ovo ou peixe</li>
+            <li>Bastante salada e legumes</li>
+            <li>Fruta de sobremesa</li>
+        `;
+
+        lancheTarde = `
+            <li>Fruta picada</li>
+            <li>Sanduíche natural pequeno</li>
+            <li>Iogurte natural</li>
+        `;
+
+        jantar = `
+            <li>Sopa de legumes</li>
+            <li>Omelete com salada</li>
+            <li>Frango com legumes</li>
+        `;
+
+        ceia = `
+            <li>Chá sem açúcar</li>
+            <li>Leite em pequena quantidade</li>
+            <li>Fruta leve</li>
+        `;
+
+        evitar = `
+            <li>Refrigerante</li>
+            <li>Frituras</li>
+            <li>Doces todos os dias</li>
+            <li>Fast food</li>
+            <li>Salgadinhos industrializados</li>
+        `;
+
+    } else {
+        titulo = "Cardápio para controle de peso";
+        objetivo = "Controlar peso com equilíbrio, sem restrições exageradas.";
+
+        cafe = `
+            <li>Fruta com aveia</li>
+            <li>Iogurte natural</li>
+            <li>Ovo mexido</li>
+            <li>Pão integral em pequena porção</li>
+        `;
+
+        lancheManha = `
+            <li>Fruta</li>
+            <li>Castanhas em pequena quantidade</li>
+            <li>Iogurte natural</li>
+        `;
+
+        almoco = `
+            <li>Arroz em menor quantidade</li>
+            <li>Feijão</li>
+            <li>Proteína magra: frango, peixe, ovo ou carne magra</li>
+            <li>Salada à vontade</li>
+            <li>Legumes cozidos</li>
+        `;
+
+        lancheTarde = `
+            <li>Sanduíche natural</li>
+            <li>Fruta</li>
+            <li>Iogurte natural</li>
+        `;
+
+        jantar = `
+            <li>Legumes com proteína</li>
+            <li>Sopa leve</li>
+            <li>Omelete com salada</li>
+        `;
+
+        ceia = `
+            <li>Chá sem açúcar</li>
+            <li>Fruta leve</li>
+        `;
+
+        evitar = `
+            <li>Refrigerantes</li>
+            <li>Doces frequentes</li>
+            <li>Frituras</li>
+            <li>Ultraprocessados</li>
+            <li>Comer assistindo TV/celular</li>
+        `;
+    }
+
+    hidratacao = `
+        <li>Beber água ao longo do dia</li>
+        <li>Evitar substituir água por sucos ou refrigerantes</li>
+        <li>Levar garrafinha para escola</li>
+    `;
+
+    observacao = `
+        <li>As sugestões são educativas e não substituem acompanhamento profissional.</li>
+        <li>O ideal é adaptar por preferências, alergias e orientação da família.</li>
+        <li>Manter horários regulares ajuda no desenvolvimento infantil.</li>
+    `;
+
+    return `
+        <div class="cardapio-completo">
+            <h3>${titulo}</h3>
+
+            <div class="objetivo-cardapio">
+                <strong>Objetivo nutricional:</strong> ${objetivo}
+            </div>
+
+            <div class="refeicao">
+                <h4>🌅 Café da Manhã</h4>
+                <ul>${cafe}</ul>
+            </div>
+
+            <div class="refeicao">
+                <h4>🍌 Lanche da Manhã</h4>
+                <ul>${lancheManha}</ul>
+            </div>
+
+            <div class="refeicao">
+                <h4>🍛 Almoço</h4>
+                <ul>${almoco}</ul>
+            </div>
+
+            <div class="refeicao">
+                <h4>🥪 Lanche da Tarde</h4>
+                <ul>${lancheTarde}</ul>
+            </div>
+
+            <div class="refeicao">
+                <h4>🌙 Jantar</h4>
+                <ul>${jantar}</ul>
+            </div>
+
+            <div class="refeicao">
+                <h4>🫖 Ceia</h4>
+                <ul>${ceia}</ul>
+            </div>
+
+            <div class="refeicao evitar">
+                <h4>⚠️ Evitar ou reduzir</h4>
+                <ul>${evitar}</ul>
+            </div>
+
+            <div class="refeicao">
+                <h4>💧 Hidratação</h4>
+                <ul>${hidratacao}</ul>
+            </div>
+
+            <div class="refeicao observacao">
+                <h4>📌 Observações</h4>
+                <ul>${observacao}</ul>
+            </div>
+        </div>
+    `;
 
