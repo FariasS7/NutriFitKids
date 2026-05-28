@@ -287,3 +287,182 @@ button:hover {
     gap: 20px;
     max-width: 1100px;
 }
+
+/* GRÁFICO */
+
+.grafico-box {
+    background: linear-gradient(135deg, #ffffff, #f8f7ff);
+    margin-top: 40px;
+    padding: 35px;
+    border-radius: 32px;
+    box-shadow: 0px 14px 40px rgba(79,70,229,0.14);
+    width: 100%;
+    max-width: 900px;
+    height: 380px;
+}
+
+.grafico-box h2 {
+    font-size: 22px;
+    color: #111827;
+    margin-bottom: 25px;
+}
+
+.grafico-box canvas {
+    height: 270px !important;
+}
+
+/* ATIVIDADES */
+
+.atividades {
+    margin-top: 25px;
+    background: #eef2ff;
+    padding: 22px;
+    border-radius: 18px;
+}
+
+.atividades h3 {
+    color: #4F46E5;
+    margin-bottom: 15px;
+}
+
+.atividades ul {
+    padding-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 25px;
+}
+
+.atividades li {
+    color: #374151;
+}
+
+/* STATUS */
+
+.status-abaixo {
+    border-left: 8px solid #f59e0b;
+}
+
+.status-normal {
+    border-left: 8px solid #10b981;
+}
+
+.status-acima {
+    border-left: 8px solid #dc2626;
+}
+
+/* DARK MODE */
+
+.dark {
+    background: #111827;
+    color: white;
+}
+
+.dark .main {
+    background: #111827;
+}
+
+.dark .card,
+.dark .formulario,
+.dark .grafico-box {
+    background: #1F2937;
+    color: white;
+}
+
+.dark .card p,
+.dark .subtitulo {
+    color: #E5E7EB;
+}
+
+.dark input {
+    background: #374151;
+    color: white;
+    border: none;
+}
+
+.dark .atividades {
+    background: #374151;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .cards,
+    .formulario {
+        flex-direction: column;
+    }
+
+    .card,
+    .card-resumo,
+    input,
+    button,
+    .campo-busca {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .atividades ul {
+        grid-template-columns: 1fr;
+    }
+
+    .grafico-box {
+        height: auto;
+    }
+}
+/* TELAS */
+
+.tela {
+    animation: fade 0.4s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* PAINEL */
+
+.painel-lista {
+    background: white;
+    margin-top: 35px;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0px 10px 30px rgba(79,70,229,0.12);
+}
+
+.painel-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.painel-topo h2 {
+    color: #4F46E5;
+}
