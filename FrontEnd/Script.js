@@ -544,3 +544,139 @@ function gerarCardapio(crianca) {
             <li>Banana com aveia ou mamão</li>
             <li>Vitamina de fruta com leite</li>
         `;
+        lancheManha = `
+            <li>Fruta com aveia</li>
+            <li>Iogurte natural</li>
+            <li>Sanduíche pequeno com queijo</li>
+        `;
+
+        almoco = `
+            <li>Arroz e feijão</li>
+            <li>Frango desfiado, carne moída ou ovo</li>
+            <li>Legumes cozidos</li>
+            <li>Salada leve</li>
+            <li>Fruta de sobremesa</li>
+        `;
+
+        lancheTarde = `
+            <li>Vitamina de banana com aveia</li>
+            <li>Pão com queijo ou pasta de amendoim</li>
+            <li>Bolo caseiro simples</li>
+        `;
+
+        jantar = `
+            <li>Sopa de legumes com carne ou frango</li>
+            <li>Arroz, feijão e ovo em menor quantidade</li>
+            <li>Purê de batata com frango</li>
+        `;
+
+        ceia = `
+            <li>Leite morno</li>
+            <li>Iogurte natural</li>
+            <li>Fruta leve</li>
+        `;
+
+        evitar = `
+            <li>Refrigerantes</li>
+            <li>Salgadinhos industrializados</li>
+            <li>Doces em excesso</li>
+        `;
+
+    } else if (situacao === "Abaixo do peso" && idade > 10) {
+        titulo = "Cardápio reforçado para crescimento";
+        objetivo = "Apoiar crescimento, energia e ganho de peso com alimentos saudáveis.";
+
+        cafe = `
+            <li>Leite ou vitamina com aveia</li>
+            <li>Ovos mexidos</li>
+            <li>Pão integral com queijo</li>
+            <li>Fruta com granola</li>
+        `;
+
+        lancheManha = `
+            <li>Iogurte com aveia</li>
+            <li>Castanhas em pequena quantidade</li>
+            <li>Fruta</li>
+        `;
+
+        almoco = `
+            <li>Arroz, feijão ou lentilha</li>
+            <li>Frango, carne magra ou peixe</li>
+            <li>Legumes cozidos</li>
+            <li>Salada colorida</li>
+            <li>Azeite em pequena quantidade</li>
+        `;
+
+        lancheTarde = `
+            <li>Sanduíche natural</li>
+            <li>Vitamina de fruta</li>
+            <li>Tapioca com queijo</li>
+        `;
+
+        jantar = `
+            <li>Prato semelhante ao almoço em menor quantidade</li>
+            <li>Sopa completa com proteína</li>
+            <li>Macarrão simples com frango e legumes</li>
+        `;
+
+        ceia = `
+            <li>Leite</li>
+            <li>Iogurte</li>
+            <li>Fruta com aveia</li>
+        `;
+
+        evitar = `
+            <li>Pular refeições</li>
+            <li>Trocar almoço por lanche</li>
+            <li>Excesso de doces antes das refeições</li>
+        `;
+
+    } else if (situacao === "Peso normal" && idade <= 10) {
+        titulo = "Cardápio equilibrado infantil";
+        objetivo = "Manter crescimento saudável e bons hábitos alimentares.";
+
+        cafe = `
+            <li>Leite ou iogurte natural</li>
+            <li>Pão integral ou tapioca</li>
+            <li>Fruta da estação</li>
+            <li>Ovo mexido ou queijo branco</li>
+        `;
+
+        lancheManha = `
+            <li>Fruta</li>
+            <li>Suco natural sem açúcar</li>
+            <li>Iogurte natural</li>
+        `;
+
+        almoco = `
+            <li>Arroz e feijão</li>
+            <li>Frango, ovo ou carne magra</li>
+            <li>Legumes cozidos</li>
+            <li>Salada de folhas</li>
+            <li>Fruta de sobremesa</li>
+        `;
+
+        lancheTarde = `
+            <li>Vitamina de fruta</li>
+            <li>Bolacha integral</li>
+            <li>Sanduíche natural pequeno</li>
+        `;
+
+        jantar = `
+            <li>Sopa de legumes</li>
+            <li>Omelete com salada</li>
+            <li>Arroz, feijão e frango em menor quantidade</li>
+        `;
+
+        ceia = `
+            <li>Chá sem açúcar</li>
+            <li>Leite morno</li>
+            <li>Fruta leve</li>
+        `;
+
+        evitar = `
+            <li>Refrigerante diariamente</li>
+            <li>Excesso de biscoito recheado</li>
+            <li>Frituras frequentes</li>
+        `;
+
