@@ -45,8 +45,7 @@
             </ul>
         </aside>
 
-
-        <!-- CONTEÚDO -->
+          <!-- CONTEÚDO -->
         <main class="main">
 
             <!-- DASHBOARD -->
@@ -150,3 +149,129 @@
                             <option value="5º C">5º C</option>
 
 </select>
+ </div>
+                        <h2>👶 Lista de Crianças</h2>
+
+                        <input
+                            class="campo-busca"
+                            type="text"
+                            id="busca"
+                            placeholder="🔍 Buscar criança..."
+                            onkeyup="buscarCrianca()"
+                        >
+                    </div>
+
+                    <div id="listaCriancas" class="lista"></div>
+                </div>
+            </section>
+
+            <!-- RELATÓRIOS -->
+            <section id="relatorios" class="tela" style="display: none;">
+                <h1>Relatórios Nutricionais</h1>
+                <p class="subtitulo">Indicadores gerais, estatísticas e impressão.</p>
+
+                <div class="cards dashboard-cards">
+                    <div class="card card-resumo">
+                        <div class="card-icon">👶</div>
+                        <div>
+                            <h3>Total Crianças</h3>
+                            <p id="relatorioTotal">0</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-resumo">
+                        <div class="card-icon">⚠️</div>
+                        <div>
+                            <h3>Abaixo do Peso</h3>
+                            <p id="relatorioAbaixo">0</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-resumo">
+                        <div class="card-icon">✅</div>
+                        <div>
+                            <h3>Peso Normal</h3>
+                            <p id="relatorioNormal">0</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-resumo">
+                        <div class="card-icon">📈</div>
+                        <div>
+                            <h3>Acima do Peso</h3>
+                            <p id="relatorioAcima">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relatorio-acoes">
+                    <div class="grafico-box">
+                        <h2>📊 Gráfico de IMC das Crianças</h2>
+                        <canvas id="graficoImc"></canvas>
+                    </div>
+                    <button onclick="imprimirRelatorio()" class="btn-imprimir">
+                        🖨️ Imprimir Relatório Completo
+                    </button>
+                </div>
+            </section>
+
+            <!-- CARDÁPIO -->
+            <section id="cardapio" class="tela" style="display: none;">
+                <h1>Cardápio Sugerido</h1>
+                <p class="subtitulo">Sugestões alimentares conforme idade e IMC.</p>
+
+                <div class="painel-lista">
+                    <h2>🍎 Sugestões de Alimentação</h2>
+                    <div id="cardapioConteudo" class="lista"></div>
+                </div>
+            </section>
+
+            <!-- CONFIGURAÇÕES -->
+            <section id="configuracoes" class="tela" style="display: none;">
+                <h1>Configurações</h1>
+                <p class="subtitulo">Personalize o sistema e gerencie os dados.</p>
+
+                <div class="lista">
+                    <div class="card">
+                        <h3>🌙 Modo Escuro</h3>
+                        <p>Altere o tema visual do sistema.</p>
+                        <button onclick="ativarDarkMode()">Ativar / Desativar</button>
+                    </div>
+
+                    <div class="card">
+                        <h3>🗑️ Resetar Sistema</h3>
+                        <p>Apaga todas as crianças cadastradas no navegador.</p>
+                        <button class="btn-remover" onclick="resetarSistema()">
+                            Apagar Todos os Dados
+                        </button>
+                    </div>
+
+                    <div class="card">
+                        <h3>🚪 Sair</h3>
+                        <p>Voltar para a tela de login.</p>
+                        <button onclick="sairSistema()">Sair do Sistema</button>
+                    </div>
+                    <div class="card">
+                        <h3>👤 Perfil do Usuário</h3>
+
+                        <p><strong>Nome:</strong> Administrador NutriFitKids</p>
+                        <p><strong>Tipo:</strong> Coordenador / Nutricionista</p>
+                        <p><strong>Email:</strong> admin@nutrifitkids.com</p>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+    <div id="notificacao"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="./script.js"></script>
+
+</body>
+
+</html>
+
+
+    
