@@ -155,3 +155,188 @@ function cadastrarCrianca() {
 
         </div>
     `;
+    } else {
+
+    atividades = `
+        <div class="atividade-box">
+
+            <h3>🔥 Exercícios para Controle de Peso</h3>
+
+            <p class="atividade-texto">
+                Objetivo: aumentar gasto calórico,
+                melhorar condicionamento e estimular hábitos saudáveis.
+            </p>
+
+            <div class="atividade-grid">
+
+                <div class="atividade-item">
+                    🏃 Corrida leve
+                </div>
+
+                <div class="atividade-item">
+                    🚴 Bicicleta
+                </div>
+
+                <div class="atividade-item">
+                    🏊 Natação
+                </div>
+
+                <div class="atividade-item">
+                    ⚽ Futebol
+                </div>
+
+                <div class="atividade-item">
+                    🕺 Dança aeróbica
+                </div>
+
+                <div class="atividade-item">
+                    🥾 Caminhada
+                </div>
+
+            </div>
+
+            <div class="tempo-atividade">
+                ⏱️ Recomendação: 60 minutos diários
+            </div>
+
+        </div>
+    `;
+}
+   
+
+    let novaCrianca = {
+    nome,
+    responsavel,
+    classe,
+    idade,
+    altura,
+    peso,
+    imc: imc.toFixed(2),
+    situacao,
+    alimentacao,
+    atividades
+};
+
+if (editando >= 0) {
+
+    criancas[editando] = novaCrianca;
+
+    editando = -1;
+
+} else {
+
+    criancas.push(novaCrianca);
+}
+    atualizarTela();
+    salvarDados();
+    mostrarNotificacao("Criança cadastrada com sucesso!");
+    limparCampos();
+}
+
+
+function atualizarTela() {
+    let lista = document.getElementById("listaCriancas");
+    lista.innerHTML = "";
+
+    let somaImc = 0;
+
+    criancas.forEach((crianca, indice) => {
+        somaImc += parseFloat(crianca.imc);
+
+        lista.innerHTML += `
+            <div class="card">
+                <h2>${crianca.nome}</h2>
+                <p><strong>Idade:</strong> ${crianca.idade}</p>
+                <p><strong>Responsável:</strong> ${crianca.responsavel}</p>
+                <p><strong>Classe/Sala:</strong> ${crianca.classe}</p>
+                <p><strong>Altura:</strong> ${crianca.altura}m</p>
+                <p><strong>Peso:</strong> ${crianca.peso}kg</p>
+                <p><strong>IMC:</strong> ${crianca.imc}</p>
+                <p><strong>Situação:</strong> ${crianca.situacao}</p>
+                <p><strong>Alimentação:</strong> ${crianca.alimentacao}</p>
+
+                <div class="atividades">
+                    ${crianca.atividades}
+                </div>
+
+                <button onclick="editarCrianca(${indice})">
+                    Editar
+                </button>
+
+                <button class="btn-remover" onclick="removerCrianca(${indice})">
+                    Remover
+                </button>
+                <button onclick="imprimirCrianca(${indice})">
+                    🖨️ Imprimir
+                </button>
+            </div>
+        `;
+    });
+
+    document.getElementById("totalCriancas").innerText = criancas.length;
+
+    if (criancas.length > 0) {
+        let media = somaImc / criancas.length;
+        document.getElementById("mediaImc").innerText = media.toFixed(1);
+    } else {
+        document.getElementById("mediaImc").innerText = "0";
+    }
+
+    atualizarGrafico();
+}
+
+function removerCrianca(indice) {
+    criancas.splice(indice, 1);
+    atualizarTela();
+    atualizarCardapio();
+    atualizarRelatorios();
+}
+
+function atualizarGrafico() {
+
+    let nomes = criancas.map(crianca => crianca.nome);
+
+    let imcs = criancas.map(crianca => parseFloat(crianca.imc));
+
+    let canvas = document.getElementById("graficoImc");
+
+    if (!canvas || typeof Chart === "undefined") {
+        return;
+    }
+
+    if (graficoImc !== null) {
+        graficoImc.destroy();
+    }
+
+    graficoImc = new Chart(canvas, {
+
+        type: "bar",
+
+        data: {
+
+            labels: nomes,
+
+            datasets: [{
+
+                label: "IMC",
+
+                data: imcs,
+
+                backgroundColor: [
+
+                    "#8B5CF6",
+                    "#6366F1",
+                    "#EC4899",
+                    "#10B981",
+                    "#F59E0B",
+                    "#EF4444"
+
+                ],
+
+                borderRadius: 18,
+
+                borderSkipped: false,
+
+                barThickness: 32
+            }]
+        },
