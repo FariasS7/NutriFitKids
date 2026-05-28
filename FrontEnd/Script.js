@@ -895,4 +895,231 @@ function gerarCardapio(crianca) {
             </div>
         </div>
     `;
+    }
+function imprimirRelatorio() {
+
+    let conteudo = "";
+
+    criancas.forEach(crianca => {
+
+        conteudo += `
+
+        <div class="card ${classeSituacao(crianca.situacao)}">
+
+            <h2>${crianca.nome}</h2>
+
+            <p><strong>Idade:</strong> ${crianca.idade}</p>
+
+            <p><strong>Altura:</strong> ${crianca.altura}m</p>
+
+            <p><strong>Peso:</strong> ${crianca.peso}kg</p>
+
+            <p><strong>IMC:</strong> ${crianca.imc}</p>
+
+            <p><strong>Situação:</strong> ${crianca.situacao}</p>
+
+            <p><strong>Alimentação:</strong> ${crianca.alimentacao}</p>
+
+            <div>
+                ${crianca.atividades}
+            </div>
+
+            <hr>
+
+            ${gerarCardapio(crianca)}
+
+        </div>
+
+        `;
+    });
+
+    let janela = window.open("", "", "width=1000,height=800");
+
+    janela.document.write(`
+
+        <html>
+
+        <head>
+
+            <title>Relatório Nutricional</title>
+
+            <style>
+
+                body {
+
+                    font-family: Arial;
+
+                    padding: 30px;
+
+                    background: #f4f7fb;
+                }
+
+                h1 {
+
+                    color: #4F46E5;
+                }
+
+                .card {
+
+                    background: white;
+
+                    padding: 25px;
+
+                    margin-bottom: 25px;
+
+                    border-radius: 15px;
+
+                    border-left: 8px solid #4F46E5;
+                }
+
+                h2 {
+
+                    color: #4F46E5;
+                }
+
+                p {
+
+                    line-height: 1.8;
+                }
+
+                ul {
+
+                    margin-top: 10px;
+                }
+
+                li {
+
+                 margin-bottom: 8px;
+                }
+
+                hr {
+
+                    margin: 20px 0;
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            <h1>Relatório Nutricional Infantil</h1>
+
+            ${conteudo}
+
+        </body>
+
+        </html>
+
+    `);
+
+    janela.document.close();
+
+    janela.print();
+}
+function salvarDados() {
+    localStorage.setItem("criancas", JSON.stringify(criancas));
+}
+
+function carregarDados() {
+    let dados = localStorage.getItem("criancas");
+
+    if (dados) {
+        criancas = JSON.parse(dados);
+        atualizarTela();
+    }
+}
+
+window.onload = carregarDados;
+
+function buscarCrianca() {
+
+    let texto = document.getElementById("busca").value.toLowerCase();
+
+    let cards = document.querySelectorAll("#listaCriancas .card");
+
+    cards.forEach(card => {
+
+        let nome = card.querySelector("h2").innerText.toLowerCase();
+
+        if (nome.includes(texto)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+        }
+    });
+}
+
+function classeSituacao(situacao) {
+
+    if (situacao === "Abaixo do peso") {
+
+        return "status-abaixo";
+    }
+
+    if (situacao === "Peso normal") {
+
+        return "status-normal";
+    }
+
+    return "status-acima";
+}
+// LOGIN
+
+function fazerLogin() {
+
+    let usuario = document.getElementById("usuario").value;
+
+    let senha = document.getElementById("senha").value;
+
+    if (usuario === "admin" && senha === "1234") {
+
+        document.getElementById("login").style.display = "none";
+
+        document.getElementById("app").style.display = "flex";
+
+    } else {
+
+        alert("Usuário ou senha incorretos!");
+    }
+}
+
+function sairSistema() {
+
+    document.getElementById("login").style.display = "flex";
+
+    document.getElementById("app").style.display = "none";
+}
+
+
+// CARREGAR SISTEMA
+
+window.onload = function () {
+
+    carregarDados();
+
+    mostrarDashboard();
+
+    document.getElementById("app").style.display = "none";
+
+    document.getElementById("login").style.display = "flex";
+}
+    // MENU ATIVO
+
+const menus = document.querySelectorAll(".sidebar li");
+
+menus.forEach(menu => {
+
+    menu.addEventListener("click", () => {
+
+        menus.forEach(item => {
+            item.classList.remove("ativo");
+        });
+
+        menu.classList.add("ativo");
+    });
+});
 
